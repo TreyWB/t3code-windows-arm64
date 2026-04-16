@@ -38,8 +38,8 @@ That workflow intentionally keeps the broad validation suite so code breakage is
   - tag format: `nightly-vX.Y.Z-nightly.YYYYMMDD.<run_number>`
   - release name includes the short commit SHA
   - `make_latest` is always `false`
-- Uses the current `apps/desktop/package.json` semver core (`X.Y.Z`) as the nightly base, then appends a nightly prerelease suffix.
-- Publishes Electron auto-update metadata to the dedicated `nightly` updater channel.
+- Uses the next stable patch version as the nightly base. For example, `0.0.17` produces nightlies on `0.0.18-nightly.*`.
+- Publishes Electron auto-update metadata to the dedicated `nightly` updater channel, so desktop users can opt into that track independently from stable.
 - Does not publish the CLI package to npm.
 - Does not commit version bumps back to `main`.
 
