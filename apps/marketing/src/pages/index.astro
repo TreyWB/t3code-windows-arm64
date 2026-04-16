@@ -43,12 +43,6 @@ import Layout from "../layouts/Layout.astro";
   }
 
   function pickAsset(assets: ReleaseAsset[], platform: Platform): string | null {
-    if (platform.os === "win") {
-      return (
-        assets.find((a) => a.name.endsWith("-x64.exe"))
-          ?.browser_download_url ?? null
-      );
-    }
     if (platform.os === "mac") {
       const preferred = assets.find((a) =>
         a.name.endsWith(`-${platform.arch}.dmg`),
@@ -75,6 +69,11 @@ import Layout from "../layouts/Layout.astro";
 
     document.documentElement.dataset.platform = platform.os;
     label.textContent = platform.label;
+
+    if (platform.os === "win") {
+      btn.href = "/download";
+      return;
+    }
 
     try {
       const release = await fetchLatestRelease();

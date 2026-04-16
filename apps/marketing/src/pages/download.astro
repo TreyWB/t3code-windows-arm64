@@ -36,8 +36,12 @@ import { RELEASES_URL } from "../lib/releases";
         <h2 class="platform-name">Windows</h2>
       </div>
       <div class="download-cards">
+        <a class="download-card" data-asset="arm64.exe" href={RELEASES_URL}>
+          <span class="card-arch">ARM64 (Windows on Arm)</span>
+          <span class="card-format">.exe</span>
+        </a>
         <a class="download-card" data-asset="x64.exe" href={RELEASES_URL}>
-          <span class="card-arch">Windows 10, 11</span>
+          <span class="card-arch">x64 (Intel/AMD)</span>
           <span class="card-format">.exe</span>
         </a>
       </div>
