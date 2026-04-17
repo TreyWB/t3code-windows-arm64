@@ -98,4 +98,26 @@ it.layer(NodeServices.layer)("build-desktop-artifact", (it) => {
       assert.equal(resolved.mockUpdates, false);
     }),
   );
+
+  it.effect("accepts Windows arm64 as a valid explicit build target", () =>
+    Effect.gen(function* () {
+      const resolved = yield* resolveBuildOptions({
+        platform: Option.some("win"),
+        target: Option.none(),
+        arch: Option.some("arm64"),
+        buildVersion: Option.none(),
+        outputDir: Option.none(),
+        skipBuild: Option.none(),
+        keepStage: Option.none(),
+        signed: Option.none(),
+        verbose: Option.none(),
+        mockUpdates: Option.none(),
+        mockUpdateServerPort: Option.none(),
+      });
+
+      assert.equal(resolved.platform, "win");
+      assert.equal(resolved.target, "nsis");
+      assert.equal(resolved.arch, "arm64");
+    }),
+  );
 });
