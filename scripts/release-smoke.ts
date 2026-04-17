@@ -144,7 +144,13 @@ try {
   const { arm64Path, x64Path } = writeMacManifestFixtures(tempRoot);
   execFileSync(
     process.execPath,
-    [resolve(repoRoot, "scripts/merge-mac-update-manifests.ts"), arm64Path, x64Path],
+    [
+      resolve(repoRoot, "scripts/merge-update-manifests.ts"),
+      "--platform",
+      "mac",
+      arm64Path,
+      x64Path,
+    ],
     {
       cwd: repoRoot,
       stdio: "inherit",
