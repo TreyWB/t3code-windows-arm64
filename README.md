@@ -1,62 +1,29 @@
-# T3 Code
+# T3 Code Windows ARM64 Fork
 
-T3 Code is a minimal web GUI for coding agents (currently Codex and Claude, more coming soon).
+This repository is a fork of [pingdotgg/t3code](https://github.com/pingdotgg/t3code).
 
-## Installation
+The only goal of this fork is to build and publish T3 Code desktop releases for
+Windows on ARM64. It is not intended to replace the upstream project, publish
+packages for other platforms, or maintain separate product documentation.
 
-> [!WARNING]
-> T3 Code currently supports Codex and Claude.
-> Install and authenticate at least one provider before use:
->
-> - Codex: install [Codex CLI](https://github.com/openai/codex) and run `codex login`
-> - Claude: install Claude Code and run `claude auth login`
+For the main project README, feature documentation, installation options for
+other platforms, issue tracking, and upstream development, use the official
+repository:
 
-### Run without installing
+[https://github.com/pingdotgg/t3code](https://github.com/pingdotgg/t3code)
 
-```bash
-npx t3
-```
+## Windows ARM64 Releases
 
-### Desktop app
+Windows ARM64 installer builds from this fork are published on this repository's
+GitHub Releases page:
 
-Install the latest version of the desktop app from [GitHub Releases](https://github.com/pingdotgg/t3code/releases), or from your favorite package registry:
+[https://github.com/TreyWB/t3code-windows-arm64/releases](https://github.com/TreyWB/t3code-windows-arm64/releases)
 
-#### Windows (`winget`)
+Use upstream releases for macOS, Linux, Windows x64, and official CLI/package
+distribution.
 
-```bash
-winget install T3Tools.T3Code
-```
+## Maintenance Notes
 
-#### macOS (Homebrew)
-
-```bash
-brew install --cask t3-code
-```
-
-#### Arch Linux (AUR)
-
-```bash
-yay -S t3code-bin
-```
-
-## Some notes
-
-We are very very early in this project. Expect bugs.
-
-We are not accepting contributions yet.
-
-Observability guide: [docs/observability.md](./docs/observability.md)
-
-## If you REALLY want to contribute still.... read this first
-
-Before local development, prepare the environment and install dependencies:
-
-```bash
-# Optional: only needed if you use mise for dev tool management.
-mise install
-bun install .
-```
-
-Read [CONTRIBUTING.md](./CONTRIBUTING.md) before opening an issue or PR.
-
-Need support? Join the [Discord](https://discord.gg/jn4EGJjrvv).
+This fork should stay as close to upstream as practical. Changes here should be
+limited to the Windows ARM64 build/release path and small compatibility fixes
+needed to keep that release path working.
