@@ -1,29 +1,98 @@
 # T3 Code Windows ARM64 Fork
 
-This repository is a fork of [pingdotgg/t3code](https://github.com/pingdotgg/t3code).
+T3 Code is a minimal web GUI for coding agents (currently Codex, Claude, Cursor, and OpenCode, more coming soon).
 
-The only goal of this fork is to build and publish T3 Code desktop releases for
-Windows on ARM64. It is not intended to replace the upstream project, publish
-packages for other platforms, or maintain separate product documentation.
+This fork exists only to build and publish Windows ARM64 desktop releases. Upstream
+[`pingdotgg/t3code`](https://github.com/pingdotgg/t3code) remains the source for
+macOS, Linux, Windows x64, the hosted app, and CLI/package releases.
 
-For the main project README, feature documentation, installation options for
-other platforms, issue tracking, and upstream development, use the official
-repository:
+## Installation
 
-[https://github.com/pingdotgg/t3code](https://github.com/pingdotgg/t3code)
+> [!WARNING]
+> T3 Code currently supports Codex, Claude, Cursor, and OpenCode.
+> Install and authenticate at least one provider before use:
+>
+> - Codex: install [Codex CLI](https://developers.openai.com/codex/cli) and run `codex login`
+> - Claude: install [Claude Code](https://claude.com/product/claude-code) and run `claude auth login`
+> - Cursor: install [Cursor CLI](https://cursor.com/cli) and run `cursor-agent login`
+> - OpenCode: install [OpenCode](https://opencode.ai) and run `opencode auth login`
 
-## Windows ARM64 Releases
+### Run without installing
 
-Windows ARM64 installer builds from this fork are published on this repository's
-GitHub Releases page:
+```bash
+npx t3@latest
+```
 
-[https://github.com/TreyWB/t3code-windows-arm64/releases](https://github.com/TreyWB/t3code-windows-arm64/releases)
+Tip: Use `npx t3@latest --help` for the full CLI reference.
 
-Use upstream releases for macOS, Linux, Windows x64, and official CLI/package
-distribution.
+### Desktop app
 
-## Maintenance Notes
+Windows ARM64 users can install this fork's latest desktop build from
+[its GitHub Releases page](https://github.com/TreyWB/t3code-windows-arm64/releases).
 
-This fork should stay as close to upstream as practical. Changes here should be
-limited to the Windows ARM64 build/release path and small compatibility fixes
-needed to keep that release path working.
+For every other platform, install the latest official version from
+[upstream GitHub Releases](https://github.com/pingdotgg/t3code/releases), or from your favorite package registry:
+
+#### Windows (`winget`)
+
+```bash
+winget install T3Tools.T3Code
+```
+
+#### macOS (Homebrew)
+
+```bash
+brew install --cask t3-code
+```
+
+#### Arch Linux (AUR)
+
+```bash
+yay -S t3code-bin
+```
+
+## Some notes
+
+We are very very early in this project. Expect bugs.
+
+We are not accepting contributions yet.
+
+There's no public docs site yet, checkout the miscellaneous markdown files in [docs](./docs).
+
+## Documentation
+
+- [Getting started](./docs/getting-started/quick-start.md)
+- [Architecture overview](./docs/architecture/overview.md)
+- [Provider guides](./docs/providers/codex.md)
+- [Operations](./docs/operations/ci.md)
+- [Reference](./docs/reference/encyclopedia.md)
+
+## If you REALLY want to contribute still.... read this first
+
+### Install `vp`
+
+T3 Code uses Vite+ so you'll need to install the global `vp` command-line tool.
+
+#### macOS / Linux
+
+```bash
+curl -fsSL https://vite.plus | bash
+```
+
+#### Windows
+
+```bash
+irm https://vite.plus/ps1 | iex
+```
+
+Checkout their getting started guide for more information: https://viteplus.dev/guide/
+
+### Install dependencies
+
+```bash
+vp i
+```
+
+Read [CONTRIBUTING.md](./CONTRIBUTING.md) before opening an issue or PR.
+
+Need support? Join the [Discord](https://discord.gg/jn4EGJjrvv).
