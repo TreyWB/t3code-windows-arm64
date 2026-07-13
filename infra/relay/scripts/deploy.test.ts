@@ -211,6 +211,11 @@ describe("release workflow tracing config propagation", () => {
 
       expect(workflow).not.toContain("client_tracing_token:");
       expect(workflow).not.toContain("needs.relay_public_config.outputs.client_tracing_token");
+      if (workflow.startsWith("name: Release Windows ARM64")) {
+        expect(workflow).not.toContain("relay_public_config:");
+        expect(workflow).not.toContain("relay-client-tracing-config");
+        return;
+      }
       expect(workflow).toContain('--github-env-file "$RUNNER_TEMP/relay-client-tracing.env"');
       expect(workflow).toContain("name: relay-client-tracing-config");
       expect(workflow).toContain('cat "$config_path" >> "$GITHUB_ENV"');
